@@ -32,7 +32,6 @@ Skill for composing clean Git commits by breaking large changes into logical com
 5. [Timeline Control](#5-timeline) — **MEDIUM**
    - 5.1 [Use Custom Commit Dates for Timeline Control](#use-custom-commit-dates-for-timeline-control)
 
-
 ---
 
 ## 1. Commit Analysis
@@ -226,7 +225,7 @@ Guidelines for this section.
 
 ### 4.1 'Commit Atomic Changes'
 
-**Impact: HIGH** - 
+**Impact: HIGH** -
 
 # Commit Atomic Changes
 
