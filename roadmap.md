@@ -41,6 +41,7 @@ Mục tiêu: đưa Chronicle Composer từ ý tưởng/workflow thành skill rep
 
 ### Việc cần làm
 - [ ] Tạo cấu trúc thư mục `skills/chronicle-composer/`, `skills/chronicle-composer/rules/`, `packages/chronicle-composer-build/src/`, `.github/workflows/`.
+- [x] Cấu hình `.gitignore` để bỏ qua thư mục template `agent-skills/`.
 - [ ] Tạo file `skills/chronicle-composer/SKILL.md`.
 - [ ] Tạo file `skills/chronicle-composer/metadata.json`.
 - [ ] Tạo file `skills/chronicle-composer/rules/_template.md`.
@@ -181,3 +182,4 @@ Tăng độ tin cậy, dễ mở rộng, dễ cộng tác.
 - [x] 2026-03-26: Chuyển roadmap sang checklist có tick để tracking tiến trình.
 - [x] 2026-03-26: Cập nhật roadmap theo phạm vi single-skill và bổ sung checklist cấu hình publish Skills.sh.
 - [x] 2026-03-26: Bổ sung nguyên tắc `agent-skills/` là template tham chiếu, tách khỏi source/release chính thức.
+- [x] 2026-03-26: Thiết lập `.gitignore` để ignore thư mục template `agent-skills/`.
