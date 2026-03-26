@@ -1,9 +1,11 @@
 ---
 name: git-compose-commit
-description: "Skill for composing clean Git commits by breaking large changes into logical commit groups, avoiding giant mixed commits, and using cdate/adate to maintain a clear project timeline."
+description: 'Skill for composing clean Git commits by breaking large changes into logical commit groups, avoiding giant mixed commits, and using cdate/adate to maintain a clear project timeline.'
 risk: low
 source: community
----------
+---
+
+---
 
 # Git Compose Commit
 
@@ -19,22 +21,22 @@ This document defines operational skills and rules for agents working with this 
 
 Large changes are often staged together and committed in one big commit. This is bad because:
 
-* Hard to review
-* Hard to revert
-* Breaks commit history
-* Business flows get mixed in one commit
-* Some agents only read filenames (not diffs), so grouping by file is critical
+- Hard to review
+- Hard to revert
+- Breaks commit history
+- Business flows get mixed in one commit
+- Some agents only read filenames (not diffs), so grouping by file is critical
 
 ## Rule: Never commit a huge "meteor" commit
 
 Do NOT commit all changes at once.
 Always break changes into logical commits based on:
 
-* Business flow
-* Feature
-* Module
-* Folder
-* Related files
+- Business flow
+- Feature
+- Module
+- Folder
+- Related files
 
 ## How to Break Git Changes
 
@@ -47,9 +49,9 @@ Agent must inspect the actual changes inside files using git diff.
 
 Reason:
 
-* A single file may contain multiple business flow changes
-* Committing the whole file may mix unrelated changes
-* Some agents stage whole files, but commits should be grouped by logical change, not file boundary
+- A single file may contain multiple business flow changes
+- Committing the whole file may mix unrelated changes
+- Some agents stage whole files, but commits should be grouped by logical change, not file boundary
 
 ### Required Workflow
 
@@ -70,14 +72,14 @@ git diff <file>
 
 Examples of logical groups:
 
-* Add new feature
-* Fix bug
-* Refactor function
-* Update UI layout
-* Change database schema
-* Update configuration
-* Add logging
-* Rename variables
+- Add new feature
+- Fix bug
+- Refactor function
+- Update UI layout
+- Change database schema
+- Update configuration
+- Add logging
+- Rename variables
 
 4. Stage changes by **hunks**, not entire files:
 
@@ -128,13 +130,13 @@ Not:
 
 Group commits by one of the following:
 
-* Feature
-* Bug fix
-* Refactor
-* Database change
-* UI change
-* Config / Infrastructure
-* Documentation
+- Feature
+- Bug fix
+- Refactor
+- Database change
+- UI change
+- Config / Infrastructure
+- Documentation
 
 ## Commit Message Convention (Mandatory)
 
@@ -160,16 +162,16 @@ type(scope): short description
 
 Common commit types:
 
-* feat: new feature
-* fix: bug fix
-* refactor: code refactor
-* docs: documentation
-* style: formatting / style
-* test: tests
-* chore: tooling / config
-* perf: performance improvement
-* build: build system
-* ci: CI/CD
+- feat: new feature
+- fix: bug fix
+- refactor: code refactor
+- docs: documentation
+- style: formatting / style
+- test: tests
+- chore: tooling / config
+- perf: performance improvement
+- build: build system
+- ci: CI/CD
 
 ### Examples
 
@@ -197,11 +199,11 @@ Extract shared query builder
 
 ### Rules
 
-* Short description <= 50 characters
-* Use imperative mood (add, fix, update, refactor)
-* Do NOT capitalize first letter
-* Do NOT end short description with a period
-* Long description explains WHY, not just WHAT
+- Short description <= 50 characters
+- Use imperative mood (add, fix, update, refactor)
+- Do NOT capitalize first letter
+- Do NOT end short description with a period
+- Long description explains WHY, not just WHAT
 
 ### Bad Examples
 
@@ -227,8 +229,8 @@ docs(readme): update setup instructions
 
 This repository uses custom git tools:
 
-* `git cdate` → commit with custom date
-* `git adate` → amend last commit date
+- `git cdate` → commit with custom date
+- `git adate` → amend last commit date
 
 These tools are implemented via PowerShell scripts and git aliases.
 
@@ -389,12 +391,12 @@ git cdate
 
 Always remember:
 
-* Small commits
-* Logical commits
-* One feature per commit
-* Clean history
-* No giant commits
-* Group files by business flow
-* Commit history should tell the story of the project
+- Small commits
+- Logical commits
+- One feature per commit
+- Clean history
+- No giant commits
+- Group files by business flow
+- Commit history should tell the story of the project
 
 A good git history should read like a development timeline, not a file dump.

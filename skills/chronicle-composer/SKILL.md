@@ -29,13 +29,13 @@ Reference these guidelines when:
 
 ## Rule Categories by Priority
 
-| Priority | Category         | Impact | Prefix       |
-| -------- | ---------------- | ------ | ------------ |
-| 1        | Commit Analysis  | HIGH   | `analysis-`  |
-| 2        | Staging Strategy | HIGH   | `staging-`   |
-| 3        | Commit Convention| HIGH   | `convention-`|
-| 4        | Timeline Control | MEDIUM | `timeline-`  |
-| 5        | History Management| MEDIUM| `history-`   |
+| Priority | Category           | Impact | Prefix        |
+| -------- | ------------------ | ------ | ------------- |
+| 1        | Commit Analysis    | HIGH   | `analysis-`   |
+| 2        | Staging Strategy   | HIGH   | `staging-`    |
+| 3        | Commit Convention  | HIGH   | `convention-` |
+| 4        | Timeline Control   | MEDIUM | `timeline-`   |
+| 5        | History Management | MEDIUM | `history-`    |
 
 ## Quick Reference
 
@@ -46,6 +46,7 @@ Reference these guidelines when:
 ### 2. Staging Strategy (HIGH)
 
 - `staging-stage-hunks-not-files` - Use `git add -p` to stage hunks, not entire files
+- `staging-commit-atomic-changes` - Commit atomic changes that can be reverted independently
 
 ### 3. Commit Convention (HIGH)
 
@@ -74,6 +75,7 @@ Reference these guidelines when:
 ### Common Patterns
 
 **Bad Commit Examples:**
+
 ```
 update project
 fix bugs
@@ -82,6 +84,7 @@ update stuff
 ```
 
 **Good Commit Examples:**
+
 ```
 feat(auth): add JWT authentication
 

@@ -1,0 +1,28 @@
+# Chronicle Composer CODEOWNERS
+#
+# This file defines who owns what areas of the codebase.
+# Changes to these files require approval from the listed owners.
+
+# Core skill definition - requires maintainer approval
+skills/chronicle-composer/SKILL.md @the-khiem7
+skills/chronicle-composer/metadata.json @the-khiem7
+
+# Build system and automation - requires maintainer approval
+packages/chronicle-composer-build/ @the-khiem7
+.github/workflows/ @the-khiem7
+
+# Git workflow rules - open to contributors but maintainer approval needed
+skills/chronicle-composer/rules/ @the-khiem7
+
+# Documentation - open to contributors
+README.md @the-khiem7
+CHANGELOG.md @the-khiem7
+roadmap.md @the-khiem7
+
+# Configuration files - maintainer approval
+package.json @the-khiem7
+.prettierrc @the-khiem7
+.gitignore @the-khiem7
+
+# Template reference (read-only for contributors)
+/agent-skills/ @the-khiem7

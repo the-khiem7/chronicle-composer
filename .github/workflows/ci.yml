@@ -41,6 +41,12 @@ jobs:
     - name: Extract test cases
       run: npm run extract-tests
 
+    - name: Lint and format check
+      run: npm run lint
+
+    - name: Run regression tests
+      run: npm run regression
+
     - name: Verify build artifacts
       run: |
         ls -la dist/

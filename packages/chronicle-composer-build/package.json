@@ -13,7 +13,12 @@
     "version:set": "node src/version-manager.js set",
     "release": "node src/version-manager.js release"
   },
-  "keywords": ["git", "workflow", "skill", "build"],
+  "keywords": [
+    "git",
+    "workflow",
+    "skill",
+    "build"
+  ],
   "author": "chronicle-composer",
   "license": "MIT"
 }

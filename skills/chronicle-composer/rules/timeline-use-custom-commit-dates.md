@@ -37,6 +37,7 @@ git cdate "2026-03-18 11:00:00" "test: add feature tests"
 Create PowerShell scripts and git aliases:
 
 **git-cdate.ps1:**
+
 ```powershell
 param([string]$date, [string]$message)
 
@@ -47,6 +48,7 @@ git commit -m $message
 ```
 
 **git-adate.ps1:**
+
 ```powershell
 param([string]$date)
 
@@ -57,6 +59,7 @@ git commit --amend --no-edit
 ```
 
 **Git config aliases:**
+
 ```
 [alias]
     cdate = "!powershell -NoProfile -ExecutionPolicy Bypass -File C:/Users/<username>/git-cdate.ps1"

@@ -3,3 +3,4 @@
 .env*.local
 agent-skills/
 dist
+node_modules
