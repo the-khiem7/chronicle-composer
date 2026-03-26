@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "rule": "analysis-avoid-meteor-commits",
+    "title": "Avoid Meteor Commits",
+    "impact": "HIGH",
+    "file": "analysis-avoid-meteor-commits.md"
+  },
+  {
+    "rule": "convention-commit-message-format",
+    "title": "Follow Commit Message Convention",
+    "impact": "HIGH",
+    "file": "convention-commit-message-format.md"
+  },
+  {
+    "rule": "history-maintain-clean-workflow",
+    "title": "Maintain Clean Git Workflow",
+    "impact": "MEDIUM",
+    "file": "history-maintain-clean-workflow.md"
+  },
+  {
+    "rule": "staging-stage-hunks-not-files",
+    "title": "Stage Hunks, Not Entire Files",
+    "impact": "HIGH",
+    "file": "staging-stage-hunks-not-files.md"
+  },
+  {
+    "rule": "timeline-use-custom-commit-dates",
+    "title": "Use Custom Commit Dates for Timeline Control",
+    "impact": "MEDIUM",
+    "file": "timeline-use-custom-commit-dates.md"
+  }
+]
