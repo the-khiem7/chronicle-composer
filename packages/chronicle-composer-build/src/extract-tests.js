@@ -19,7 +19,7 @@ ruleFiles.forEach(file => {
   const content = fs.readFileSync(filePath, 'utf8');
 
   // Extract frontmatter
-  const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
+  const frontmatterMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (frontmatterMatch) {
     const frontmatter = frontmatterMatch[1];
     const titleMatch = frontmatter.match(/title:\s*(.+)/);
