@@ -1,5 +1,7 @@
 # Chronicle Composer
 
+[![CI](https://github.com/the-khiem7/chronicle-composer/workflows/CI/badge.svg)](https://github.com/the-khiem7/chronicle-composer/actions)
+
 Compose history, not commits.
 
 Chronicle Composer is an engineering workflow and agent skill designed to transform messy code changes into clean, structured Git history using atomic commits, commit conventions, and timeline control.
