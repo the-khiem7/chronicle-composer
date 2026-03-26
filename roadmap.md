@@ -184,3 +184,4 @@ Tăng độ tin cậy, dễ mở rộng, dễ cộng tác.
 - [x] 2026-03-26: Bổ sung nguyên tắc `agent-skills/` là template tham chiếu, tách khỏi source/release chính thức.
 - [x] 2026-03-26: Thiết lập `.gitignore` để ignore thư mục template `agent-skills/`.
 - [x] 2026-03-26: Hoàn thành M1 Foundation Repo - tạo cấu trúc skill, build scripts, và validate được local build.
+- [x] 2026-03-26: Adapt content từ ORIGINAL.md vào rule system, giữ name là chronicle-composer theo yêu cầu user.
