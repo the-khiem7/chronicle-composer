@@ -5,6 +5,7 @@
   "scripts": {
     "validate": "node packages/chronicle-composer-build/src/validate.js",
     "build": "node packages/chronicle-composer-build/src/build.js",
+    "compile": "node packages/chronicle-composer-build/src/compile.js",
     "extract-tests": "node packages/chronicle-composer-build/src/extract-tests.js"
   },
   "keywords": ["git", "workflow", "skill", "chronicle"],

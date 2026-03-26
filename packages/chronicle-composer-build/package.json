@@ -6,6 +6,7 @@
   "scripts": {
     "validate": "node src/validate.js",
     "build": "node src/build.js",
+    "compile": "node src/compile.js",
     "extract-tests": "node src/extract-tests.js"
   },
   "keywords": ["git", "workflow", "skill", "build"],
