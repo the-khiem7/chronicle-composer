@@ -1,14 +1,23 @@
 {
   "name": "chronicle-composer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Git workflow skill repository for composing clean commit history",
   "scripts": {
     "validate": "node packages/chronicle-composer-build/src/validate.js",
     "build": "node packages/chronicle-composer-build/src/build.js",
     "compile": "node packages/chronicle-composer-build/src/compile.js",
-    "extract-tests": "node packages/chronicle-composer-build/src/extract-tests.js"
+    "extract-tests": "node packages/chronicle-composer-build/src/extract-tests.js",
+    "version:validate": "node packages/chronicle-composer-build/src/version-manager.js validate",
+    "version:bump": "node packages/chronicle-composer-build/src/version-manager.js bump",
+    "version:set": "node packages/chronicle-composer-build/src/version-manager.js set",
+    "release": "node packages/chronicle-composer-build/src/version-manager.js release"
   },
-  "keywords": ["git", "workflow", "skill", "chronicle"],
+  "keywords": [
+    "git",
+    "workflow",
+    "skill",
+    "chronicle"
+  ],
   "author": "chronicle-composer",
   "license": "MIT"
 }

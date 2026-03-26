@@ -7,7 +7,11 @@
     "validate": "node src/validate.js",
     "build": "node src/build.js",
     "compile": "node src/compile.js",
-    "extract-tests": "node src/extract-tests.js"
+    "extract-tests": "node src/extract-tests.js",
+    "version:validate": "node src/version-manager.js validate",
+    "version:bump": "node src/version-manager.js bump",
+    "version:set": "node src/version-manager.js set",
+    "release": "node src/version-manager.js release"
   },
   "keywords": ["git", "workflow", "skill", "build"],
   "author": "chronicle-composer",

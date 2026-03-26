@@ -101,21 +101,21 @@ Mọi thay đổi quan trọng đều được kiểm soát tự động.
 Đóng gói bản phát hành nhất quán, truy vết được.
 
 ### Việc cần làm
-- [ ] Chuẩn hóa semantic version cho skill.
-- [ ] Đồng bộ version giữa `metadata.json` và `SKILL.md` frontmatter.
-- [ ] Tạo release workflow build artifact.
-- [ ] Tạo bước zip skill directory trong release workflow.
-- [ ] Tạo bước release notes ngắn trong release workflow.
-- [ ] Tạo bước publish GitHub release.
-- [ ] Tạo changelog theo phiên bản.
-- [ ] Thiết lập cấu hình publish cho Skills.sh (single-skill package name, source path, artifact naming).
-- [ ] Xác thực luồng cài đặt từ Skills.sh bằng repo slug thực tế.
-- [ ] Bổ sung tài liệu install/publish cho Skills.sh trong README.
+- [x] Chuẩn hóa semantic version cho skill.
+- [x] Đồng bộ version giữa `metadata.json` và `SKILL.md` frontmatter.
+- [x] Tạo release workflow build artifact.
+- [x] Tạo bước zip skill directory trong release workflow.
+- [x] Tạo bước release notes ngắn trong release workflow.
+- [x] Tạo bước publish GitHub release.
+- [x] Tạo changelog theo phiên bản.
+- [x] Thiết lập cấu hình publish cho Skills.sh (single-skill package name, source path, artifact naming).
+- [x] Xác thực luồng cài đặt từ Skills.sh bằng repo slug thực tế.
+- [x] Bổ sung tài liệu install/publish cho Skills.sh trong README.
 
 ### Definition of Done
-- [ ] Có artifact zip theo version.
-- [ ] Có release tag và ghi chú phát hành.
-- [ ] Cài đặt được từ Skills.sh theo hướng dẫn chính thức.
+- [x] Có artifact zip theo version.
+- [x] Có release tag và ghi chú phát hành.
+- [x] Cài đặt được từ Skills.sh theo hướng dẫn chính thức.
 
 ---
 
@@ -193,3 +193,5 @@ Tăng độ tin cậy, dễ mở rộng, dễ cộng tác.
 - [x] 2026-03-26: Hoàn thành M2 Rule Engine + Build System - parser, validator, compiler hoạt động, AGENTS.md generated from rules.
 - [x] 2026-03-26: Hoàn thành M3 CI/CD Quality Gates - GitHub Actions workflow với path filters, comprehensive validation, artifact uploads, status badge.
 - [x] 2026-03-26: Cập nhật repo URL thật (the-khiem7/chronicle-composer) vào README badge và roadmap.
+- [x] 2026-03-26: Hoàn thành M4 Versioning + Release Packaging - version manager, release workflow, changelog generation, Skills.sh documentation.
+- [x] 2026-03-26: Complete M4 testing - tag v0.1.1 pushed, Skills.sh installation verified, CHANGELOG.md created, release badge added.

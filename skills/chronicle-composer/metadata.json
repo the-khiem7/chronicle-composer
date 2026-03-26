@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "organization": "chronicle-composer",
   "date": "March 2026",
   "abstract": "Skill for composing clean Git commits by breaking large changes into logical commit groups, avoiding giant mixed commits, and using cdate/adate to maintain a clear project timeline.",
