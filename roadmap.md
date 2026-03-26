@@ -40,15 +40,15 @@ Mục tiêu: đưa Chronicle Composer từ ý tưởng/workflow thành skill rep
 Đặt nền tảng cấu trúc và chuẩn đóng gói.
 
 ### Việc cần làm
-- [ ] Tạo cấu trúc thư mục `skills/chronicle-composer/`, `skills/chronicle-composer/rules/`, `packages/chronicle-composer-build/src/`, `.github/workflows/`.
+- [x] Tạo cấu trúc thư mục `skills/chronicle-composer/`, `skills/chronicle-composer/rules/`, `packages/chronicle-composer-build/src/`, `.github/workflows/`.
 - [x] Cấu hình `.gitignore` để bỏ qua thư mục template `agent-skills/`.
-- [ ] Tạo file `skills/chronicle-composer/SKILL.md`.
-- [ ] Tạo file `skills/chronicle-composer/metadata.json`.
-- [ ] Tạo file `skills/chronicle-composer/rules/_template.md`.
-- [ ] Tạo file `skills/chronicle-composer/rules/_sections.md`.
-- [ ] Tạo `AGENTS.md` cho contributor guidelines của repo.
-- [ ] Tạo package build với scripts `validate`, `build`, `extract-tests`.
-- [ ] Thêm quy ước trong tài liệu contributor: `agent-skills/` là template reference, không chỉnh sửa để release sản phẩm.
+- [x] Tạo file `skills/chronicle-composer/SKILL.md`.
+- [x] Tạo file `skills/chronicle-composer/metadata.json`.
+- [x] Tạo file `skills/chronicle-composer/rules/_template.md`.
+- [x] Tạo file `skills/chronicle-composer/rules/_sections.md`.
+- [x] Tạo `AGENTS.md` cho contributor guidelines của repo.
+- [x] Tạo package build với scripts `validate`, `build`, `extract-tests`.
+- [x] Thêm quy ước trong tài liệu contributor: `agent-skills/` là template reference, không chỉnh sửa để release sản phẩm.
 
 ### Definition of Done
 - [ ] Có thể chạy local `validate` và `build` không lỗi.
@@ -183,3 +183,4 @@ Tăng độ tin cậy, dễ mở rộng, dễ cộng tác.
 - [x] 2026-03-26: Cập nhật roadmap theo phạm vi single-skill và bổ sung checklist cấu hình publish Skills.sh.
 - [x] 2026-03-26: Bổ sung nguyên tắc `agent-skills/` là template tham chiếu, tách khỏi source/release chính thức.
 - [x] 2026-03-26: Thiết lập `.gitignore` để ignore thư mục template `agent-skills/`.
+- [x] 2026-03-26: Hoàn thành M1 Foundation Repo - tạo cấu trúc skill, build scripts, và validate được local build.
