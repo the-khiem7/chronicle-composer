@@ -46,6 +46,7 @@ Reference these guidelines when:
 ### 2. Staging Strategy (HIGH)
 
 - `staging-stage-hunks-not-files` - Use `git add -p` to stage hunks, not entire files
+- `staging-commit-atomic-changes` - Commit atomic changes that can be reverted independently
 
 ### 3. Commit Convention (HIGH)
 

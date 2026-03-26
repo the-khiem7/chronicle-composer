@@ -1,6 +1,6 @@
 # Skill for composing clean Git commits by breaking large changes into logical commit groups, avoiding giant mixed commits, and using cdate/adate to maintain a clear project timeline.
 
-**Version 0.1.0**
+**Version 0.1.1**
 
 chronicle-composer
 
@@ -27,7 +27,8 @@ Skill for composing clean Git commits by breaking large changes into logical com
 3. [History Management](#3-history) — **MEDIUM**
    - 3.1 [Maintain Clean Git Workflow](#maintain-clean-git-workflow)
 4. [Staging Strategy](#4-staging) — **HIGH**
-   - 4.1 [Stage Hunks, Not Entire Files](#stage-hunks,-not-entire-files)
+   - 4.1 ['Commit Atomic Changes'](#'commit-atomic-changes')
+   - 4.2 [Stage Hunks, Not Entire Files](#stage-hunks,-not-entire-files)
 5. [Timeline Control](#5-timeline) — **MEDIUM**
    - 5.1 [Use Custom Commit Dates for Timeline Control](#use-custom-commit-dates-for-timeline-control)
 
@@ -120,6 +121,7 @@ Extract shared query builder"
 ```
 
 **Format Structure:**
+
 ```
 type(scope): short description
 
@@ -205,6 +207,7 @@ git lga
 ```
 
 **Core Principles:**
+
 - Small, focused commits
 - Logical grouping (not by files)
 - Clear commit messages
@@ -221,7 +224,57 @@ Reference: [Git Workflow Best Practices](https://sethrobertson.github.io/GitBest
 
 Guidelines for this section.
 
-### 4.1 Stage Hunks, Not Entire Files
+### 4.1 'Commit Atomic Changes'
+
+**Impact: HIGH** - 
+
+# Commit Atomic Changes
+
+Each commit should represent a single, atomic change that can be understood and reverted independently.
+
+**Incorrect:**
+
+```bash
+# Commit mixes multiple unrelated changes
+git add .
+git commit -m "update user management"
+
+# This commit includes:
+# - User registration logic
+# - Password validation
+# - UI layout changes
+# - Database schema updates
+```
+
+**Correct:**
+
+```bash
+# Commit each change separately
+git add src/auth/registration.js
+git commit -m "feat(auth): add user registration logic"
+
+git add src/auth/validation.js
+git commit -m "feat(auth): add password validation"
+
+git add src/ui/user-form.js
+git commit -m "refactor(ui): update user form layout"
+
+git add migrations/001_user_schema.sql
+git commit -m "feat(db): add user table schema"
+```
+
+## Why This Matters
+
+Atomic commits make it easier to:
+
+- Understand what changed and why
+- Revert specific changes without affecting others
+- Review changes in focused pull requests
+- Bisect bugs to specific commits
+
+Reference: [Atomic Commits](https://www.aleksandrhovhannisyan.com/blog/atomic-git-commits/)
+
+### 4.2 Stage Hunks, Not Entire Files
 
 **Impact: HIGH** - Ensures commits contain only related changes, preventing mixed business logic
 
@@ -295,6 +348,7 @@ git cdate "2026-03-18 11:00:00" "test: add feature tests"
 Create PowerShell scripts and git aliases:
 
 **git-cdate.ps1:**
+
 ```powershell
 param([string]$date, [string]$message)
 
@@ -305,6 +359,7 @@ git commit -m $message
 ```
 
 **git-adate.ps1:**
+
 ```powershell
 param([string]$date)
 
@@ -315,6 +370,7 @@ git commit --amend --no-edit
 ```
 
 **Git config aliases:**
+
 ```
 [alias]
     cdate = "!powershell -NoProfile -ExecutionPolicy Bypass -File C:/Users/<username>/git-cdate.ps1"
