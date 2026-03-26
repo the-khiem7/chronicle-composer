@@ -10,7 +10,11 @@
     "version:validate": "node packages/chronicle-composer-build/src/version-manager.js validate",
     "version:bump": "node packages/chronicle-composer-build/src/version-manager.js bump",
     "version:set": "node packages/chronicle-composer-build/src/version-manager.js set",
-    "release": "node packages/chronicle-composer-build/src/version-manager.js release"
+    "release": "node packages/chronicle-composer-build/src/version-manager.js release",
+    "format": "prettier --write \"**/*.{js,md,json}\"",
+    "format:check": "prettier --check \"**/*.{js,md,json}\"",
+    "lint": "npm run format:check",
+    "regression": "node packages/chronicle-composer-build/src/regression-test.js"
   },
   "keywords": [
     "git",
@@ -19,5 +23,8 @@
     "chronicle"
   ],
   "author": "chronicle-composer",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  }
 }

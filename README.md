@@ -26,6 +26,7 @@ Git history should tell the story of the project.
 # 2. Core Philosophy
 
 Traditional workflow:
+
 ```
 
 make changes → git add . → git commit
@@ -33,6 +34,7 @@ make changes → git add . → git commit
 ```
 
 Chronicle workflow:
+
 ```
 
 make changes
@@ -54,9 +56,11 @@ clean git history
 ```
 
 Key idea:
+
 > Commits represent logical changes, not files.
 
 A commit should answer:
+
 - What changed?
 - Why did it change?
 - Which part of the system changed?
@@ -67,6 +71,7 @@ A commit should answer:
 # 3. Atomic Commit Principle
 
 Each commit must:
+
 - Represent a single logical change
 - Be small and focused
 - Be independently revertable
@@ -76,6 +81,7 @@ Each commit must:
 - Prefer staging hunks instead of full files
 
 Bad commit example:
+
 ```
 
 update project
@@ -85,6 +91,7 @@ many changes
 ```
 
 Good commit examples:
+
 ```
 
 feat(parser): add email parsing module
@@ -109,6 +116,7 @@ long description
 ```
 
 ## Rules
+
 - Short description ≤ 50 characters
 - Use imperative mood (add, fix, update, refactor)
 - Do not end short description with a period
@@ -116,18 +124,18 @@ long description
 
 ## Types
 
-| Type | Purpose |
-|------|--------|
-| feat | New feature |
-| fix | Bug fix |
-| refactor | Code refactor |
-| docs | Documentation |
-| style | Formatting |
-| test | Tests |
-| chore | Tooling / config |
-| perf | Performance |
-| build | Build system |
-| ci | CI/CD |
+| Type     | Purpose          |
+| -------- | ---------------- |
+| feat     | New feature      |
+| fix      | Bug fix          |
+| refactor | Code refactor    |
+| docs     | Documentation    |
+| style    | Formatting       |
+| test     | Tests            |
+| chore    | Tooling / config |
+| perf     | Performance      |
+| build    | Build system     |
+| ci       | CI/CD            |
 
 ---
 
@@ -136,6 +144,7 @@ long description
 Changes must be grouped by logical change, not by file.
 
 Logical change categories:
+
 - Feature implementation
 - Bug fix
 - Refactor
@@ -177,6 +186,7 @@ The goal is to produce a clean, readable commit history that represents the deve
 Git history is treated as a project timeline.
 
 Commits should:
+
 - Reflect development order
 - Represent milestones and features
 - Show bug fixes and refactors
@@ -184,6 +194,7 @@ Commits should:
 - Be readable like a project story
 
 A good Git history should allow someone to understand:
+
 - How the project evolved
 - When features were added
 - When bugs were fixed
@@ -202,6 +213,7 @@ This project introduces the concept of a project chronicle.
 Chronicle means a record of events in chronological order.
 
 In this context:
+
 - Each commit is an event
 - Commit history is the timeline
 - Git repository is the chronicle of the project
@@ -244,11 +256,13 @@ npx skills add the-khiem7/chronicle-composer
 ## Manual Installation
 
 ### For Claude Code:
+
 ```bash
 cp -r skills/chronicle-composer ~/.claude/skills/
 ```
 
 ### For Claude.ai:
+
 Add the `SKILL.md` content to your project knowledge or conversation.
 
 ## Requirements

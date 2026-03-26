@@ -39,9 +39,11 @@ Mục tiêu: đưa Chronicle Composer từ ý tưởng/workflow thành skill rep
 ## M1 - Foundation Repo (Week 1)
 
 ### Mục tiêu
+
 Đặt nền tảng cấu trúc và chuẩn đóng gói.
 
 ### Việc cần làm
+
 - [x] Tạo cấu trúc thư mục `skills/chronicle-composer/`, `skills/chronicle-composer/rules/`, `packages/chronicle-composer-build/src/`, `.github/workflows/`.
 - [x] Cấu hình `.gitignore` để bỏ qua thư mục template `agent-skills/`.
 - [x] Tạo file `skills/chronicle-composer/SKILL.md`.
@@ -53,6 +55,7 @@ Mục tiêu: đưa Chronicle Composer từ ý tưởng/workflow thành skill rep
 - [x] Thêm quy ước trong tài liệu contributor: `agent-skills/` là template reference, không chỉnh sửa để release sản phẩm.
 
 ### Definition of Done
+
 - [x] Có thể chạy local `validate` và `build` không lỗi.
 - [x] `SKILL.md` và `metadata.json` có schema thống nhất.
 - [x] Không có artifact/release nào lấy source từ `agent-skills/`.
@@ -62,9 +65,11 @@ Mục tiêu: đưa Chronicle Composer từ ý tưởng/workflow thành skill rep
 ## M2 - Rule Engine + Build System (Week 2)
 
 ### Mục tiêu
+
 Biến rule markdown thành artifact compile-ready.
 
 ### Việc cần làm
+
 - [x] Xây parser cho rule markdown + frontmatter.
 - [x] Xây validator cho `title`, `impact`, `explanation`.
 - [x] Xây validator kiểm tra đủ bad/good examples.
@@ -73,6 +78,7 @@ Biến rule markdown thành artifact compile-ready.
 - [x] Xây extract-tests script để xuất `test-cases.json`.
 
 ### Definition of Done
+
 - [x] Build output `AGENTS.md` deterministic.
 - [x] Validate chặn được rule sai format.
 - [x] `test-cases.json` tạo ra ổn định từ rules.
@@ -82,14 +88,17 @@ Biến rule markdown thành artifact compile-ready.
 ## M3 - CI/CD Quality Gates (Week 3)
 
 ### Mục tiêu
+
 Mọi thay đổi quan trọng đều được kiểm soát tự động.
 
 ### Việc cần làm
+
 - [x] Tạo workflow CI cho pull request: install dependencies, run validate, run build.
 - [x] Áp dụng path filter để chỉ chạy job khi skill/build package thay đổi.
 - [x] Thêm status badge vào README.
 
 ### Definition of Done
+
 - [x] PR không pass validate/build thì không merge.
 - [x] CI chạy ổn định và thời gian hợp lý.
 
@@ -98,9 +107,11 @@ Mọi thay đổi quan trọng đều được kiểm soát tự động.
 ## M4 - Versioning + Release Packaging (Week 4)
 
 ### Mục tiêu
+
 Đóng gói bản phát hành nhất quán, truy vết được.
 
 ### Việc cần làm
+
 - [x] Chuẩn hóa semantic version cho skill.
 - [x] Đồng bộ version giữa `metadata.json` và `SKILL.md` frontmatter.
 - [x] Tạo release workflow build artifact.
@@ -113,6 +124,7 @@ Mọi thay đổi quan trọng đều được kiểm soát tự động.
 - [x] Bổ sung tài liệu install/publish cho Skills.sh trong README.
 
 ### Definition of Done
+
 - [x] Có artifact zip theo version.
 - [x] Có release tag và ghi chú phát hành.
 - [x] Cài đặt được từ Skills.sh theo hướng dẫn chính thức.
@@ -122,9 +134,11 @@ Mọi thay đổi quan trọng đều được kiểm soát tự động.
 ## M5 - Production Hardening (Week 5+)
 
 ### Mục tiêu
+
 Tăng độ tin cậy, dễ mở rộng, dễ cộng tác.
 
 ### Việc cần làm
+
 - [ ] Bổ sung regression checks cho test-cases.
 - [ ] Bổ sung lint/format policy cho markdown và scripts.
 - [ ] Thiết lập `CODEOWNERS` cho khu vực trọng yếu.
@@ -132,6 +146,7 @@ Tăng độ tin cậy, dễ mở rộng, dễ cộng tác.
 - [ ] Tạo checklist review cho skill content quality.
 
 ### Definition of Done
+
 - [ ] Contributor mới có thể thêm rule đúng chuẩn trong 1 lần PR.
 - [ ] Không có thay đổi phá vỡ pipeline khi mở rộng số lượng rules.
 
@@ -154,7 +169,7 @@ Tăng độ tin cậy, dễ mở rộng, dễ cộng tác.
 - Risk: CI chậm khi repo lớn dần.
   - Mitigation: path filters + cache dependencies.
 - Risk: contributor viết rule không đồng nhất.
-  - Mitigation: _template.md bắt buộc + validate cứng.
+  - Mitigation: \_template.md bắt buộc + validate cứng.
 - Risk: artifact build không deterministic.
   - Mitigation: sort rules nhất quán, chuẩn hóa line ending.
 

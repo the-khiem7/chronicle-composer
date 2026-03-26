@@ -38,6 +38,7 @@ Extract shared query builder"
 ```
 
 **Format Structure:**
+
 ```
 type(scope): short description
 

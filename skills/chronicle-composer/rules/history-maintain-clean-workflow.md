@@ -68,6 +68,7 @@ git lga
 ```
 
 **Core Principles:**
+
 - Small, focused commits
 - Logical grouping (not by files)
 - Clear commit messages

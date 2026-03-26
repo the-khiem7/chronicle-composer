@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs')
+const path = require('path')
 
 /**
  * Parse a single rule markdown file
@@ -9,30 +9,30 @@ const path = require('path');
  * @returns {object} Parsed rule object
  */
 function parseRule(filePath) {
-  const content = fs.readFileSync(filePath, 'utf8');
-  const fileName = path.basename(filePath, '.md');
+  const content = fs.readFileSync(filePath, 'utf8')
+  const fileName = path.basename(filePath, '.md')
 
   // Extract frontmatter
-  const frontmatterMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  const frontmatterMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---/)
   if (!frontmatterMatch) {
-    throw new Error(`No frontmatter found in ${fileName}`);
+    throw new Error(`No frontmatter found in ${fileName}`)
   }
 
-  const frontmatter = frontmatterMatch[1];
-  const body = content.slice(frontmatterMatch[0].length).trim();
+  const frontmatter = frontmatterMatch[1]
+  const body = content.slice(frontmatterMatch[0].length).trim()
 
   // Parse frontmatter fields
-  const titleMatch = frontmatter.match(/title:\s*(.+)/);
-  const impactMatch = frontmatter.match(/impact:\s*(.+)/);
-  const impactDescriptionMatch = frontmatter.match(/impactDescription:\s*(.+)/);
-  const tagsMatch = frontmatter.match(/tags:\s*(.+)/);
+  const titleMatch = frontmatter.match(/title:\s*(.+)/)
+  const impactMatch = frontmatter.match(/impact:\s*(.+)/)
+  const impactDescriptionMatch = frontmatter.match(/impactDescription:\s*(.+)/)
+  const tagsMatch = frontmatter.match(/tags:\s*(.+)/)
 
   if (!titleMatch || !impactMatch) {
-    throw new Error(`Missing required frontmatter fields in ${fileName}`);
+    throw new Error(`Missing required frontmatter fields in ${fileName}`)
   }
 
   // Parse tags (comma-separated)
-  const tags = tagsMatch ? tagsMatch[1].split(',').map(tag => tag.trim()) : [];
+  const tags = tagsMatch ? tagsMatch[1].split(',').map((tag) => tag.trim()) : []
 
   return {
     fileName,
@@ -41,8 +41,8 @@ function parseRule(filePath) {
     impactDescription: impactDescriptionMatch ? impactDescriptionMatch[1].trim() : '',
     tags,
     body,
-    fullContent: content
-  };
+    fullContent: content,
+  }
 }
 
 /**
@@ -51,15 +51,15 @@ function parseRule(filePath) {
  * @returns {object} Validation result
  */
 function validateRule(rule) {
-  const errors = [];
+  const errors = []
 
   // Required fields
-  if (!rule.title) errors.push('Missing title');
-  if (!rule.impact) errors.push('Missing impact');
+  if (!rule.title) errors.push('Missing title')
+  if (!rule.impact) errors.push('Missing impact')
 
   // Impact must be HIGH or MEDIUM
   if (!['HIGH', 'MEDIUM'].includes(rule.impact)) {
-    errors.push('Impact must be HIGH or MEDIUM');
+    errors.push('Impact must be HIGH or MEDIUM')
   }
 
   // Check filename prefix matches section
@@ -68,31 +68,33 @@ function validateRule(rule) {
     'staging-': 'staging',
     'convention-': 'convention',
     'timeline-': 'timeline',
-    'history-': 'history'
-  };
+    'history-': 'history',
+  }
 
-  const matchingSection = Object.keys(sections).find(prefix => rule.fileName.startsWith(prefix));
+  const matchingSection = Object.keys(sections).find((prefix) => rule.fileName.startsWith(prefix))
   if (!matchingSection) {
-    errors.push(`Filename must start with valid section prefix: ${Object.keys(sections).join(', ')}`);
+    errors.push(
+      `Filename must start with valid section prefix: ${Object.keys(sections).join(', ')}`
+    )
   }
 
   // Check for bad/good examples
   if (!rule.body.includes('**Incorrect:**')) {
-    errors.push('Missing **Incorrect:** section');
+    errors.push('Missing **Incorrect:** section')
   }
   if (!rule.body.includes('**Correct:**')) {
-    errors.push('Missing **Correct:** section');
+    errors.push('Missing **Correct:** section')
   }
 
   // Check for reference
   if (!rule.body.includes('Reference:')) {
-    errors.push('Missing Reference section');
+    errors.push('Missing Reference section')
   }
 
   return {
     valid: errors.length === 0,
-    errors
-  };
+    errors,
+  }
 }
 
 /**
@@ -106,15 +108,15 @@ function getSectionInfo(fileName) {
     'staging-': { id: 'staging', name: 'Staging Strategy', impact: 'HIGH' },
     'convention-': { id: 'convention', name: 'Commit Convention', impact: 'HIGH' },
     'timeline-': { id: 'timeline', name: 'Timeline Control', impact: 'MEDIUM' },
-    'history-': { id: 'history', name: 'History Management', impact: 'MEDIUM' }
-  };
+    'history-': { id: 'history', name: 'History Management', impact: 'MEDIUM' },
+  }
 
   for (const [prefix, info] of Object.entries(sections)) {
     if (fileName.startsWith(prefix)) {
-      return info;
+      return info
     }
   }
-  return null;
+  return null
 }
 
 /**
@@ -124,21 +126,21 @@ function getSectionInfo(fileName) {
  * @returns {string} Compiled AGENTS.md content
  */
 function compileToAgentsMd(rules, metadata) {
-  const sections = {};
+  const sections = {}
 
   // Group rules by section
-  rules.forEach(rule => {
-    const sectionInfo = getSectionInfo(rule.fileName);
+  rules.forEach((rule) => {
+    const sectionInfo = getSectionInfo(rule.fileName)
     if (sectionInfo) {
       if (!sections[sectionInfo.id]) {
         sections[sectionInfo.id] = {
           info: sectionInfo,
-          rules: []
-        };
+          rules: [],
+        }
       }
-      sections[sectionInfo.id].rules.push(rule);
+      sections[sectionInfo.id].rules.push(rule)
     }
-  });
+  })
 
   // Generate AGENTS.md content
   let content = `# ${metadata.abstract}
@@ -163,35 +165,35 @@ ${metadata.abstract}
 
 ## Table of Contents
 
-`;
+`
 
   // Table of contents
-  let tocIndex = 1;
-  Object.values(sections).forEach(section => {
-    content += `${tocIndex}. [${section.info.name}](#${tocIndex}-${section.info.id}) — **${section.info.impact}**\n`;
+  let tocIndex = 1
+  Object.values(sections).forEach((section) => {
+    content += `${tocIndex}. [${section.info.name}](#${tocIndex}-${section.info.id}) — **${section.info.impact}**\n`
 
     section.rules.forEach((rule, ruleIndex) => {
-      content += `   - ${tocIndex}.${ruleIndex + 1} [${rule.title}](#${rule.title.toLowerCase().replace(/\s+/g, '-')})\n`;
-    });
-    tocIndex++;
-  });
+      content += `   - ${tocIndex}.${ruleIndex + 1} [${rule.title}](#${rule.title.toLowerCase().replace(/\s+/g, '-')})\n`
+    })
+    tocIndex++
+  })
 
   content += `
 
 ---
 
-`;
+`
 
   // Sections
-  tocIndex = 1;
-  Object.values(sections).forEach(section => {
+  tocIndex = 1
+  Object.values(sections).forEach((section) => {
     content += `## ${tocIndex}. ${section.info.name}
 
 **Impact: ${section.info.impact}**
 
 ${section.info.description || 'Guidelines for this section.'}
 
-`;
+`
 
     section.rules.forEach((rule, ruleIndex) => {
       content += `### ${tocIndex}.${ruleIndex + 1} ${rule.title}
@@ -200,21 +202,21 @@ ${section.info.description || 'Guidelines for this section.'}
 
 ${rule.body}
 
-`;
-    });
+`
+    })
 
     content += `---
 
-`;
-    tocIndex++;
-  });
+`
+    tocIndex++
+  })
 
-  return content.trim();
+  return content.trim()
 }
 
 module.exports = {
   parseRule,
   validateRule,
   getSectionInfo,
-  compileToAgentsMd
-};
+  compileToAgentsMd,
+}
