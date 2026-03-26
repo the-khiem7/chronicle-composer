@@ -5,24 +5,60 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+    paths:
+      - 'skills/chronicle-composer/**'
+      - 'packages/chronicle-composer-build/**'
+      - '.github/workflows/ci.yml'
+      - 'package.json'
+      - 'AGENTS.md'
 
 jobs:
-  validate:
+  validate-and-build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
 
     - name: Validate skill structure
       run: npm run validate
 
-    - name: Build skill
+    - name: Compile AGENTS.md
+      run: npm run compile
+
+    - name: Build skill package
       run: npm run build
 
     - name: Extract test cases
       run: npm run extract-tests
+
+    - name: Verify build artifacts
+      run: |
+        ls -la dist/
+        test -f dist/SKILL.md || exit 1
+        test -f dist/metadata.json || exit 1
+        test -f dist/AGENTS.md || exit 1
+        test -d dist/rules/ || exit 1
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: chronicle-composer-skill
+        path: dist/
+        retention-days: 30
+
+    - name: Upload test cases
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-cases
+        path: test-cases.json
+        retention-days: 30
