@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.1] - 2026-03-26
 
 ### Added
+
 - **Initial Release**: Chronicle Composer skill for AI coding agents
 - **Rule-Based Architecture**: Modular rule system with 5 core rules for Git workflow
   - Commit Analysis (HIGH): Avoid meteor commits
@@ -22,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Version Management**: Semantic versioning with automated changelog
 
 ### Features
+
 - Git workflow guidelines for clean commit history
 - Atomic commit principles and staging strategies
 - Conventional commit message format
@@ -29,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - PowerShell scripts for Windows date management
 
 ### Technical Details
+
 - Built with Node.js build system
 - Markdown-based rule definitions with YAML frontmatter
 - Automated AGENTS.md compilation from rules
@@ -36,6 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions for CI/CD and releases
 
 ### Installation
+
 ```bash
 npx skills add the-khiem7/chronicle-composer
 ```
