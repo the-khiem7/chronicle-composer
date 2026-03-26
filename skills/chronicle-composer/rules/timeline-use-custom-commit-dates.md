@@ -9,6 +9,29 @@ tags: git, timeline, dates
 
 Use `git cdate` and `git adate` to maintain a clear project timeline where commits reflect development order.
 
+**Incorrect:**
+
+```bash
+# Commits appear in wrong chronological order
+git add feature/
+git commit -m "feat: add new feature"
+# Wait 2 hours
+git add tests/
+git commit -m "test: add feature tests"
+# Result: Tests appear before feature in timeline
+```
+
+**Correct:**
+
+```bash
+# Maintain chronological order
+git add feature/
+git cdate "2026-03-18 09:00:00" "feat: add new feature"
+git add tests/
+git cdate "2026-03-18 11:00:00" "test: add feature tests"
+# Result: Timeline reflects actual development order
+```
+
 **Setup Required:**
 
 Create PowerShell scripts and git aliases:

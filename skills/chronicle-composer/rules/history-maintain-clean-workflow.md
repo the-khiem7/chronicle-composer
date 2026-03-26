@@ -9,6 +9,32 @@ tags: git, workflow, history
 
 Follow structured workflow to ensure commit history tells the development story.
 
+**Incorrect:**
+
+```bash
+# Chaotic workflow
+git add .
+git commit -m "work in progress"
+git add .
+git commit -m "more changes"
+git add .
+git commit -m "final fixes"
+# Result: Confusing history with unclear progression
+```
+
+**Correct:**
+
+```bash
+# Structured workflow
+git status
+git diff
+git add -p src/feature/
+git commit -m "feat: implement user authentication"
+git add -p tests/
+git commit -m "test: add authentication test cases"
+git lga  # Review clean history
+```
+
 **Recommended Workflow:**
 
 1. **Make changes** - Implement features/fixes
