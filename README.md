@@ -1,6 +1,7 @@
 # Chronicle Composer
 
 [![CI](https://github.com/the-khiem7/chronicle-composer/workflows/CI/badge.svg)](https://github.com/the-khiem7/chronicle-composer/actions)
+[![Release](https://img.shields.io/github/v/release/the-khiem7/chronicle-composer)](https://github.com/the-khiem7/chronicle-composer/releases)
 
 Compose history, not commits.
 
@@ -227,3 +228,79 @@ Always follow these principles:
 - Git history should tell a story
 - Commits represent intent, not files
 - History should be readable and meaningful
+
+---
+
+# 10. Installation
+
+## Via Skills.sh Marketplace
+
+Chronicle Composer is available on the Skills.sh marketplace:
+
+```bash
+npx skills add the-khiem7/chronicle-composer
+```
+
+## Manual Installation
+
+### For Claude Code:
+```bash
+cp -r skills/chronicle-composer ~/.claude/skills/
+```
+
+### For Claude.ai:
+Add the `SKILL.md` content to your project knowledge or conversation.
+
+## Requirements
+
+- Git repository with commits
+- Node.js 18+ (for build tools)
+- PowerShell (for `git cdate`/`git adate` on Windows)
+
+---
+
+# 11. Development
+
+## Building from Source
+
+```bash
+# Install dependencies
+npm install
+
+# Validate skill structure
+npm run validate
+
+# Build skill artifacts
+npm run build
+
+# Compile AGENTS.md from rules
+npm run compile
+
+# Extract test cases
+npm run extract-tests
+```
+
+## Version Management
+
+```bash
+# Validate version consistency
+npm run version:validate
+
+# Bump version (patch/minor/major)
+npm run version:bump patch
+
+# Prepare release
+npm run release
+```
+
+## Project Structure
+
+```
+chronicle-composer/
+├── skills/chronicle-composer/     # Skill definition
+│   ├── SKILL.md                   # AI instructions
+│   ├── metadata.json              # Skill metadata
+│   └── rules/                     # Rule definitions
+├── packages/chronicle-composer-build/  # Build system
+└── dist/                          # Build artifacts
+```
