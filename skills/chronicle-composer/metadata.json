@@ -1,0 +1,11 @@
+{
+  "version": "0.1.0",
+  "organization": "chronicle-composer",
+  "date": "March 2026",
+  "abstract": "Git workflow skill for composing clean commit history. Transform messy code changes into atomic commits with proper conventions and timeline control. The goal is not just to commit code, but to compose the chronicle of a project through meaningful commit history.",
+  "references": [
+    "https://www.conventionalcommits.org/",
+    "https://www.aleksandrhovhannisyan.com/blog/atomic-git-commits/",
+    "https://sethrobertson.github.io/GitBestPractices/"
+  ]
+}
