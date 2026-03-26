@@ -1,5 +1,7 @@
 # Chronicle Composer Roadmap
 
+**Repository:** https://github.com/the-khiem7/chronicle-composer
+
 Mục tiêu: đưa Chronicle Composer từ ý tưởng/workflow thành skill repository production-grade, có thể đóng gói và phân phối ổn định cho marketplace Skills.sh.
 
 ## Phạm vi sản phẩm
@@ -83,13 +85,13 @@ Biến rule markdown thành artifact compile-ready.
 Mọi thay đổi quan trọng đều được kiểm soát tự động.
 
 ### Việc cần làm
-- [ ] Tạo workflow CI cho pull request: install dependencies, run validate, run build.
-- [ ] Áp dụng path filter để chỉ chạy job khi skill/build package thay đổi.
-- [ ] Thêm status badge vào README.
+- [x] Tạo workflow CI cho pull request: install dependencies, run validate, run build.
+- [x] Áp dụng path filter để chỉ chạy job khi skill/build package thay đổi.
+- [x] Thêm status badge vào README.
 
 ### Definition of Done
-- [ ] PR không pass validate/build thì không merge.
-- [ ] CI chạy ổn định và thời gian hợp lý.
+- [x] PR không pass validate/build thì không merge.
+- [x] CI chạy ổn định và thời gian hợp lý.
 
 ---
 
@@ -167,11 +169,14 @@ Tăng độ tin cậy, dễ mở rộng, dễ cộng tác.
 
 ---
 
-## 6) Next Action (Immediate) - M3
+## 6) Next Action (Immediate) - M4
 
-- [ ] Tạo workflow CI cho pull request: install dependencies, run validate, run build.
-- [ ] Áp dụng path filter để chỉ chạy job khi skill/build package thay đổi.
-- [ ] Thêm status badge vào README.
+- [ ] Chuẩn hóa semantic version cho skill.
+- [ ] Đồng bộ version giữa metadata.json và SKILL.md frontmatter.
+- [ ] Tạo release workflow build artifact.
+- [ ] Tạo bước zip skill directory trong release workflow.
+- [ ] Tạo bước release notes ngắn trong release workflow.
+- [ ] Tạo bước publish GitHub release.
 
 ---
 
@@ -186,3 +191,5 @@ Tăng độ tin cậy, dễ mở rộng, dễ cộng tác.
 - [x] 2026-03-26: Adapt content từ ORIGINAL.md vào rule system, giữ name là chronicle-composer theo yêu cầu user.
 - [x] 2026-03-26: Hoàn thành M1 Definition of Done - validate/build hoạt động, schema thống nhất, không dùng agent-skills trong artifacts.
 - [x] 2026-03-26: Hoàn thành M2 Rule Engine + Build System - parser, validator, compiler hoạt động, AGENTS.md generated from rules.
+- [x] 2026-03-26: Hoàn thành M3 CI/CD Quality Gates - GitHub Actions workflow với path filters, comprehensive validation, artifact uploads, status badge.
+- [x] 2026-03-26: Cập nhật repo URL thật (the-khiem7/chronicle-composer) vào README badge và roadmap.
