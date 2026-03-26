@@ -1,0 +1,13 @@
+{
+  "name": "chronicle-composer",
+  "version": "0.1.0",
+  "description": "Git workflow skill repository for composing clean commit history",
+  "scripts": {
+    "validate": "node packages/chronicle-composer-build/src/validate.js",
+    "build": "node packages/chronicle-composer-build/src/build.js",
+    "extract-tests": "node packages/chronicle-composer-build/src/extract-tests.js"
+  },
+  "keywords": ["git", "workflow", "skill", "chronicle"],
+  "author": "chronicle-composer",
+  "license": "MIT"
+}
