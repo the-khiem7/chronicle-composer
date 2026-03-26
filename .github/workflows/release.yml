@@ -1,0 +1,108 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Validate skill structure
+      run: npm run validate
+
+    - name: Compile AGENTS.md
+      run: npm run compile
+
+    - name: Build skill package
+      run: npm run build
+
+    - name: Extract test cases
+      run: npm run extract-tests
+
+    - name: Verify build artifacts
+      run: |
+        ls -la dist/
+        test -f dist/SKILL.md || exit 1
+        test -f dist/metadata.json || exit 1
+        test -f dist/AGENTS.md || exit 1
+        test -d dist/rules/ || exit 1
+
+    - name: Generate release notes
+      id: release-notes
+      run: |
+        # Get the current tag
+        TAG=${GITHUB_REF#refs/tags/}
+        VERSION=${TAG#v}
+
+        # Generate changelog entry
+        node -e "
+        const vm = require('./packages/chronicle-composer-build/src/version-manager.js');
+        const manager = new vm();
+        const changelog = manager.generateChangelog('$VERSION');
+        console.log('Generated changelog for v$VERSION');
+        "
+
+        # Read the new changelog entry
+        CHANGELOG=\$(head -n 20 CHANGELOG.md | grep -A 20 \"## \$VERSION\")
+        CHANGELOG=\${CHANGELOG//'%'/'%25'}
+        CHANGELOG=\${CHANGELOG//$'\n'/'%0A'}
+        CHANGELOG=\${CHANGELOG//$'\r'/'%0D'}
+
+        echo \"changelog=\$CHANGELOG\" >> \$GITHUB_OUTPUT
+        echo \"version=\$VERSION\" >> \$GITHUB_OUTPUT
+
+    - name: Create zip package
+      run: |
+        cd dist
+        zip -r ../chronicle-composer-${{ steps.release-notes.outputs.version }}.zip .
+
+    - name: Create GitHub Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Chronicle Composer v${{ steps.release-notes.outputs.version }}
+        body: ${{ steps.release-notes.outputs.changelog }}
+        draft: false
+        prerelease: false
+
+    - name: Upload release assets
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./chronicle-composer-${{ steps.release-notes.outputs.version }}.zip
+        asset_name: chronicle-composer-${{ steps.release-notes.outputs.version }}.zip
+        asset_content_type: application/zip
+
+    - name: Upload build artifacts to release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./dist/AGENTS.md
+        asset_name: AGENTS.md
+        asset_content_type: text/markdown
