@@ -1,0 +1,14 @@
+{
+  "name": "@chronicle-composer/build",
+  "version": "0.1.0",
+  "description": "Build system for Chronicle Composer skill",
+  "main": "src/index.js",
+  "scripts": {
+    "validate": "node src/validate.js",
+    "build": "node src/build.js",
+    "extract-tests": "node src/extract-tests.js"
+  },
+  "keywords": ["git", "workflow", "skill", "build"],
+  "author": "chronicle-composer",
+  "license": "MIT"
+}
