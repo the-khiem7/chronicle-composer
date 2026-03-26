@@ -51,9 +51,9 @@ Mục tiêu: đưa Chronicle Composer từ ý tưởng/workflow thành skill rep
 - [x] Thêm quy ước trong tài liệu contributor: `agent-skills/` là template reference, không chỉnh sửa để release sản phẩm.
 
 ### Definition of Done
-- [ ] Có thể chạy local `validate` và `build` không lỗi.
-- [ ] `SKILL.md` và `metadata.json` có schema thống nhất.
-- [ ] Không có artifact/release nào lấy source từ `agent-skills/`.
+- [x] Có thể chạy local `validate` và `build` không lỗi.
+- [x] `SKILL.md` và `metadata.json` có schema thống nhất.
+- [x] Không có artifact/release nào lấy source từ `agent-skills/`.
 
 ---
 
@@ -63,17 +63,17 @@ Mục tiêu: đưa Chronicle Composer từ ý tưởng/workflow thành skill rep
 Biến rule markdown thành artifact compile-ready.
 
 ### Việc cần làm
-- [ ] Xây parser cho rule markdown + frontmatter.
-- [ ] Xây validator cho `title`, `impact`, `explanation`.
-- [ ] Xây validator kiểm tra đủ bad/good examples.
-- [ ] Xây validator kiểm tra filename prefix map với section.
-- [ ] Xây build script để compile `AGENTS.md` từ rules.
-- [ ] Xây extract-tests script để xuất `test-cases.json`.
+- [x] Xây parser cho rule markdown + frontmatter.
+- [x] Xây validator cho `title`, `impact`, `explanation`.
+- [x] Xây validator kiểm tra đủ bad/good examples.
+- [x] Xây validator kiểm tra filename prefix map với section.
+- [x] Xây build script để compile `AGENTS.md` từ rules.
+- [x] Xây extract-tests script để xuất `test-cases.json`.
 
 ### Definition of Done
-- [ ] Build output `AGENTS.md` deterministic.
-- [ ] Validate chặn được rule sai format.
-- [ ] `test-cases.json` tạo ra ổn định từ rules.
+- [x] Build output `AGENTS.md` deterministic.
+- [x] Validate chặn được rule sai format.
+- [x] `test-cases.json` tạo ra ổn định từ rules.
 
 ---
 
@@ -167,12 +167,11 @@ Tăng độ tin cậy, dễ mở rộng, dễ cộng tác.
 
 ---
 
-## 6) Next Action (Immediate)
+## 6) Next Action (Immediate) - M3
 
-- [ ] Khởi tạo skeleton cho `skills/chronicle-composer` và `packages/chronicle-composer-build`.
-- [ ] Thiết lập scripts `validate`/`build`/`extract-tests`.
-- [ ] Tạo workflow CI đầu tiên cho pull request.
-- [ ] Chốt spec publish của Skills.sh để khóa cấu hình đóng gói single-skill.
+- [ ] Tạo workflow CI cho pull request: install dependencies, run validate, run build.
+- [ ] Áp dụng path filter để chỉ chạy job khi skill/build package thay đổi.
+- [ ] Thêm status badge vào README.
 
 ---
 
@@ -185,3 +184,5 @@ Tăng độ tin cậy, dễ mở rộng, dễ cộng tác.
 - [x] 2026-03-26: Thiết lập `.gitignore` để ignore thư mục template `agent-skills/`.
 - [x] 2026-03-26: Hoàn thành M1 Foundation Repo - tạo cấu trúc skill, build scripts, và validate được local build.
 - [x] 2026-03-26: Adapt content từ ORIGINAL.md vào rule system, giữ name là chronicle-composer theo yêu cầu user.
+- [x] 2026-03-26: Hoàn thành M1 Definition of Done - validate/build hoạt động, schema thống nhất, không dùng agent-skills trong artifacts.
+- [x] 2026-03-26: Hoàn thành M2 Rule Engine + Build System - parser, validator, compiler hoạt động, AGENTS.md generated from rules.
