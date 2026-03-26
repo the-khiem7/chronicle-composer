@@ -1,10 +1,10 @@
 ---
 name: chronicle-composer
 description:
-  Git workflow skill for composing clean commit history. Transform messy code changes
-  into atomic commits with proper conventions and timeline control. Use when working
-  with git commits, staging changes, writing commit messages, or organizing development
-  history. Triggers on git operations, commit conventions, or history management tasks.
+  Skill for composing clean Git commits by breaking large changes into logical commit groups,
+  avoiding giant mixed commits, and using cdate/adate to maintain a clear project timeline.
+  Use when working with git staging, commit conventions, custom dates, or maintaining clean
+  commit history. Triggers on git operations, commit messages, staging workflows, or timeline management.
 license: MIT
 metadata:
   author: chronicle-composer
@@ -13,18 +13,19 @@ metadata:
 
 # Chronicle Composer
 
-Compose history, not commits. Transform messy code changes into clean, structured Git history using atomic commits, commit conventions, and timeline control.
+Skill for composing clean Git commits by breaking large changes into logical commit groups, avoiding giant mixed commits, and using cdate/adate to maintain a clear project timeline.
 
 ## When to Apply
 
 Reference these guidelines when:
 
-- Analyzing git diffs and identifying logical changes
-- Staging hunks instead of entire files
-- Writing commit messages with proper conventions
-- Managing commit dates and timeline control
-- Organizing development history into meaningful commits
-- Following atomic commit principles
+- Breaking large changes into logical commit groups
+- Avoiding giant "meteor" commits that mix business flows
+- Staging hunks instead of entire files using `git add -p`
+- Writing commit messages with conventional format
+- Using custom commit dates with `git cdate` and `git adate`
+- Maintaining chronological development timeline
+- Setting up PowerShell scripts for date control
 
 ## Rule Categories by Priority
 
@@ -40,54 +41,60 @@ Reference these guidelines when:
 
 ### 1. Commit Analysis (HIGH)
 
-- `analysis-identify-logical-changes` - Break down git diff into logical, atomic changes
-- `analysis-group-by-intent` - Group changes by business logic, not file structure
+- `analysis-avoid-meteor-commits` - Never commit all changes at once
 
 ### 2. Staging Strategy (HIGH)
 
-- `staging-hunks-over-files` - Stage individual hunks instead of entire files
-- `staging-atomic-commits` - Each commit represents one logical change
+- `staging-stage-hunks-not-files` - Use `git add -p` to stage hunks, not entire files
 
 ### 3. Commit Convention (HIGH)
 
-- `convention-message-format` - Follow type(scope): description format
-- `convention-imperative-mood` - Use imperative mood in commit messages
+- `convention-commit-message-format` - Follow type(scope): description format
 
 ### 4. Timeline Control (MEDIUM)
 
-- `timeline-chronological-order` - Maintain chronological development order
-- `timeline-date-adjustment` - Adjust commit dates when necessary
+- `timeline-use-custom-commit-dates` - Use `git cdate` and `git adate` for timeline control
 
 ### 5. History Management (MEDIUM)
 
-- `history-clean-rebase` - Use interactive rebase for clean history
-- `history-meaningful-story` - Ensure history tells the project story
+- `history-maintain-clean-workflow` - Follow structured workflow for clean history
 
 ## Implementation Guide
 
 ### Workflow Steps
 
-1. **Analyze Changes**: Run `git diff` to understand what changed
-2. **Identify Logical Groups**: Break changes into atomic units
-3. **Stage Selectively**: Use `git add -p` to stage hunks
-4. **Write Messages**: Follow convention with meaningful descriptions
-5. **Verify History**: Use `git log --oneline` to review the story
+1. **Check Status**: Run `git status` to see changed files
+2. **Analyze Changes**: Use `git diff` to understand what changed
+3. **Identify Logical Groups**: Break changes into business flow units
+4. **Stage Selectively**: Use `git add -p` to stage only related hunks
+5. **Commit with Convention**: Write proper commit messages
+6. **Set Timeline**: Use `git cdate` to maintain chronological order
+7. **Review History**: Use `git lga` to verify the timeline
 
 ### Common Patterns
 
-**Bad Commit Example:**
+**Bad Commit Examples:**
 ```
 update project
 fix bugs
 many changes
+update stuff
 ```
 
 **Good Commit Examples:**
 ```
-feat(parser): add email parsing module
-fix(auth): handle expired token validation
-refactor(repository): simplify user query logic
-docs(readme): update setup instructions
+feat(auth): add JWT authentication
+
+Implement JWT authentication flow
+Add token generation and validation
+Update login endpoint
+```
+
+```
+fix(parser): handle null email subject
+
+Fix null reference when parsing emails without subject
+Add validation before mapping
 ```
 
 ## References
