@@ -44,8 +44,7 @@ let parseErrors = 0;
 for (const ruleFile of EXPECTED_RULES) {
   const rulePath = path.join(RULES_DIR, ruleFile);
   try {
-    const content = fs.readFileSync(rulePath, 'utf8');
-    const rule = parseRule(content, ruleFile);
+    const rule = parseRule(rulePath);
 
     // Basic validation
     if (!rule.title || !rule.impact) {

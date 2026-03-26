@@ -139,26 +139,16 @@ Tăng độ tin cậy, dễ mở rộng, dễ cộng tác.
 
 ### Việc cần làm
 
-- [ ] Bổ sung regression checks cho test-cases.
-- [ ] Bổ sung lint/format policy cho markdown và scripts.
-- [ ] Thiết lập `CODEOWNERS` cho khu vực trọng yếu.
-- [ ] Viết contributing guide cho việc thêm/chỉnh rule.
-- [ ] Tạo checklist review cho skill content quality.
+- [x] Bổ sung regression checks cho test-cases.
+- [x] Bổ sung lint/format policy cho markdown và scripts.
+- [x] Thiết lập `CODEOWNERS` cho khu vực trọng yếu.
+- [x] Viết contributing guide cho việc thêm/chỉnh rule.
+- [x] Tạo checklist review cho skill content quality.
 
 ### Definition of Done
 
-- [ ] Contributor mới có thể thêm rule đúng chuẩn trong 1 lần PR.
-- [ ] Không có thay đổi phá vỡ pipeline khi mở rộng số lượng rules.
-
----
-
-## 3) Backlog Ưu Tiên Cao
-
-- [ ] Scaffold skill structure chính thức (không để template lẫn với core repo).
-- [ ] Hoàn thiện parser + validator + build scripts.
-- [ ] Thiết lập CI validate/build cho PR.
-- [ ] Thiết lập release packaging và version bump.
-- [ ] Viết tài liệu contributor và governance.
+- [x] Contributor mới có thể thêm rule đúng chuẩn trong 1 lần PR.
+- [x] Không có thay đổi phá vỡ pipeline khi mở rộng số lượng rules.
 
 ---
 
@@ -184,17 +174,6 @@ Tăng độ tin cậy, dễ mở rộng, dễ cộng tác.
 
 ---
 
-## 6) Next Action (Immediate) - M4
-
-- [ ] Chuẩn hóa semantic version cho skill.
-- [ ] Đồng bộ version giữa metadata.json và SKILL.md frontmatter.
-- [ ] Tạo release workflow build artifact.
-- [ ] Tạo bước zip skill directory trong release workflow.
-- [ ] Tạo bước release notes ngắn trong release workflow.
-- [ ] Tạo bước publish GitHub release.
-
----
-
 ## 7) Nhật ký tiến độ
 
 - [x] 2026-03-26: Khởi tạo file roadmap ban đầu.
@@ -210,3 +189,4 @@ Tăng độ tin cậy, dễ mở rộng, dễ cộng tác.
 - [x] 2026-03-26: Cập nhật repo URL thật (the-khiem7/chronicle-composer) vào README badge và roadmap.
 - [x] 2026-03-26: Hoàn thành M4 Versioning + Release Packaging - version manager, release workflow, changelog generation, Skills.sh documentation.
 - [x] 2026-03-26: Complete M4 testing - tag v0.1.1 pushed, Skills.sh installation verified, CHANGELOG.md created, release badge added.
+- [x] 2026-03-26: Hoàn thành M5 Production Hardening - regression tests, lint/format policy, CODEOWNERS, contributing guide, PR template, CI linting.
